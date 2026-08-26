@@ -11,8 +11,7 @@ const variants: Record<Variant, string> = {
     "bg-primary text-primary-foreground hover:bg-espresso shadow-[0_10px_24px_-16px_var(--espresso)]",
   outline:
     "border border-espresso/30 text-espresso hover:border-accent hover:text-accent bg-transparent",
-  cream:
-    "bg-ivory text-espresso hover:bg-cream shadow-[0_10px_24px_-18px_rgba(0,0,0,0.6)]",
+  cream: "bg-ivory text-espresso hover:bg-cream shadow-[0_10px_24px_-18px_rgba(0,0,0,0.6)]",
   accent: "bg-accent text-accent-foreground hover:brightness-95",
 };
 

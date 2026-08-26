@@ -57,12 +57,14 @@ export const SMSAlertModal: React.FC = () => {
             {activeSmsAlert.type === "booking_cancelled" ? (
               <>
                 ⚠️ <strong>TABLE RESERVATION CANCELLED:</strong> Your booking{" "}
-                <span className="font-mono text-amber-300">{activeSmsAlert.relatedId}</span> has been cancelled by cafe/system.
+                <span className="font-mono text-amber-300">{activeSmsAlert.relatedId}</span> has
+                been cancelled by cafe/system.
               </>
             ) : (
               <>
                 ⚠️ <strong>ORDER CANCELLED:</strong> Your order{" "}
-                <span className="font-mono text-amber-300">{activeSmsAlert.relatedId}</span> has been cancelled by cafe/system.
+                <span className="font-mono text-amber-300">{activeSmsAlert.relatedId}</span> has
+                been cancelled by cafe/system.
               </>
             )}
           </p>

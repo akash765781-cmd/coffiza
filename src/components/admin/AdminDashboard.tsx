@@ -29,6 +29,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
     updateOrderStatus,
     updateReservationStatus,
     resetAllData,
+    refreshData,
+    dbConnected,
   } = useOrder();
 
   const [activeTab, setActiveTab] = useState<"orders" | "reservations" | "analytics">("orders");
@@ -36,6 +38,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [showResetModal, setShowResetModal] = useState(false);
   const [resetSuccessMsg, setResetSuccessMsg] = useState<string | null>(null);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  const handleRefresh = async () => {
+    setIsRefreshing(true);
+    await refreshData();
+    setTimeout(() => setIsRefreshing(false), 500);
+  };
 
   // Analytics Metrics
   const totalSales = orders
@@ -43,12 +52,10 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
     .reduce((sum, o) => sum + o.total, 0);
 
   const activeOrdersCount = orders.filter(
-    (o) => o.status !== "cancelled" && o.status !== "delivered"
+    (o) => o.status !== "cancelled" && o.status !== "delivered",
   ).length;
 
-  const activeReservationsCount = reservations.filter(
-    (r) => r.status !== "cancelled"
-  ).length;
+  const activeReservationsCount = reservations.filter((r) => r.status !== "cancelled").length;
 
   // Filtered Orders
   const filteredOrders = orders.filter((o) => {
@@ -90,22 +97,49 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
           <div>
             <h1 className="font-serif text-lg font-bold text-amber-100 flex items-center gap-2">
               Coffizza Admin Portal
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 border border-green-500/30 font-mono">
-                LIVE
-              </span>
+              {dbConnected ? (
+                <span
+                  className="text-[10px] px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 border border-green-500/30 font-mono"
+                  title="Connected to Supabase Database"
+                >
+                  DB LIVE
+                </span>
+              ) : (
+                <span
+                  className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30 font-mono"
+                  title="Operating with Local Storage Persistence"
+                >
+                  LOCAL MODE
+                </span>
+              )}
             </h1>
-            <p className="text-xs text-stone-400">Logged in as: <strong className="text-stone-200">akashdeep</strong></p>
+            <p className="text-xs text-stone-400">
+              Logged in as: <strong className="text-stone-200">akashdeep</strong>
+            </p>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
+          {/* REFRESH / SYNC BUTTON */}
+          <button
+            onClick={handleRefresh}
+            disabled={isRefreshing}
+            className="px-3.5 py-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-semibold transition flex items-center gap-1.5 disabled:opacity-50"
+            title="Fetch latest orders and table bookings"
+          >
+            <RotateCcw
+              className={`w-3.5 h-3.5 ${isRefreshing ? "animate-spin text-amber-400" : ""}`}
+            />
+            <span>{isRefreshing ? "Syncing..." : "Sync / Refresh"}</span>
+          </button>
+
           {/* RESET DATA BUTTON */}
           <button
             onClick={() => setShowResetModal(true)}
             className="px-3.5 py-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 text-xs font-semibold transition flex items-center gap-1.5"
             title="Clear all stored orders and table bookings"
           >
-            <RotateCcw className="w-3.5 h-3.5" />
+            <Trash2 className="w-3.5 h-3.5" />
             <span>Reset System Data</span>
           </button>
 
@@ -159,7 +193,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
               <span className="text-xs uppercase font-semibold">Table Reservations</span>
               <Calendar className="w-4 h-4 text-amber-400" />
             </div>
-            <div className="text-2xl font-bold text-amber-100 font-mono">{activeReservationsCount}</div>
+            <div className="text-2xl font-bold text-amber-100 font-mono">
+              {activeReservationsCount}
+            </div>
             <p className="text-[11px] text-stone-500">Confirmed table bookings</p>
           </div>
 
@@ -321,8 +357,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                               order.status === "cancelled"
                                 ? "bg-red-500/20 text-red-400 border border-red-500/40"
                                 : order.status === "delivered"
-                                ? "bg-green-500/20 text-green-400 border border-green-500/40"
-                                : "bg-amber-500/20 text-amber-300 border border-amber-500/40"
+                                  ? "bg-green-500/20 text-green-400 border border-green-500/40"
+                                  : "bg-amber-500/20 text-amber-300 border border-amber-500/40"
                             }`}
                           >
                             <option value="placed" className="bg-stone-900 text-stone-100">
@@ -436,7 +472,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                 Reset All Stored System Data?
               </h3>
               <p className="text-xs text-stone-400 mt-1 leading-relaxed">
-                ਕੀ ਤੁਸੀਂ ਸਾਰੇ ਆਰਡਰ ਅਤੇ ਟੇਬਲ ਬੁਕਿੰਗਜ਼ ਦਾ ਡਾਟਾ ਰੀਸੈੱਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ? (This will permanently clear all orders and reservations from local storage).
+                ਕੀ ਤੁਸੀਂ ਸਾਰੇ ਆਰਡਰ ਅਤੇ ਟੇਬਲ ਬੁਕਿੰਗਜ਼ ਦਾ ਡਾਟਾ ਰੀਸੈੱਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ? (This will
+                permanently clear all orders and reservations from local storage).
               </p>
             </div>
 

@@ -14,17 +14,13 @@ export function Reviews() {
             </h2>
           </Reveal>
           <Reveal delay={80} className="flex items-center gap-4">
-            <span className="font-display text-5xl text-espresso">
-              {business.rating}
-            </span>
+            <span className="font-display text-5xl text-espresso">{business.rating}</span>
             <span>
               <span className="flex gap-0.5" aria-hidden="true">
                 {[0, 1, 2, 3, 4].map((i) => (
                   <Star
                     key={i}
-                    className={
-                      i < 4 ? "h-4 w-4 fill-accent text-accent" : "h-4 w-4 text-accent/40"
-                    }
+                    className={i < 4 ? "h-4 w-4 fill-accent text-accent" : "h-4 w-4 text-accent/40"}
                   />
                 ))}
               </span>

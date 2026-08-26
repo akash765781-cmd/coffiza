@@ -4,24 +4,22 @@ import type { ReservationFormErrors, TableReservation } from "@/types/order";
 import { X, Calendar, Users, CheckCircle, AlertCircle, Sparkles } from "lucide-react";
 
 export const TableReservationModal: React.FC = () => {
-  const {
-    isReservationOpen,
-    setIsReservationOpen,
-    reserveTable,
-    setIsMyOrdersOpen,
-    setActiveTab,
-  } = useOrder();
+  const { isReservationOpen, setIsReservationOpen, reserveTable, setIsMyOrdersOpen, setActiveTab } =
+    useOrder();
 
   const [guestName, setGuestName] = useState("");
   const [phone, setPhone] = useState("");
   const [guestCount, setGuestCount] = useState(2);
   const [date, setDate] = useState(() => new Date().toISOString().split("T")[0] || "");
   const [timeSlot, setTimeSlot] = useState("19:00");
-  const [seatingPreference, setSeatingPreference] = useState<'indoor' | 'outdoor' | 'window' | 'any'>("indoor");
+  const [seatingPreference, setSeatingPreference] = useState<
+    "indoor" | "outdoor" | "window" | "any"
+  >("indoor");
   const [specialRequest, setSpecialRequest] = useState("");
 
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [confirmedReservation, setConfirmedReservation] = useState<TableReservation | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!isReservationOpen) return null;
 
@@ -63,7 +61,7 @@ export const TableReservationModal: React.FC = () => {
     setTouched((prev) => ({ ...prev, [field]: true }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setTouched({
       guestName: true,
@@ -74,8 +72,9 @@ export const TableReservationModal: React.FC = () => {
     });
 
     if (!isValid) return;
+    setIsSubmitting(true);
 
-    const res = reserveTable({
+    const res = await reserveTable({
       guestName,
       phone,
       guestCount,
@@ -85,6 +84,7 @@ export const TableReservationModal: React.FC = () => {
       specialRequest,
     });
 
+    setIsSubmitting(false);
     if (res) {
       setConfirmedReservation(res);
     }
@@ -133,7 +133,8 @@ export const TableReservationModal: React.FC = () => {
                 Table Booking Confirmed!
               </h3>
               <p className="text-sm text-stone-400 mt-1 max-w-md mx-auto">
-                We look forward to welcoming you, <strong className="text-stone-200">{confirmedReservation.guestName}</strong>!
+                We look forward to welcoming you,{" "}
+                <strong className="text-stone-200">{confirmedReservation.guestName}</strong>!
               </p>
             </div>
 
@@ -146,11 +147,15 @@ export const TableReservationModal: React.FC = () => {
               </div>
               <div className="flex justify-between border-b border-stone-800 pb-2 text-stone-300">
                 <span>Number of Guests:</span>
-                <span className="font-semibold text-stone-100">{confirmedReservation.guestCount} Persons</span>
+                <span className="font-semibold text-stone-100">
+                  {confirmedReservation.guestCount} Persons
+                </span>
               </div>
               <div className="flex justify-between border-b border-stone-800 pb-2 text-stone-300">
                 <span>Seating Preference:</span>
-                <span className="font-semibold text-stone-100 capitalize">{confirmedReservation.seatingPreference}</span>
+                <span className="font-semibold text-stone-100 capitalize">
+                  {confirmedReservation.seatingPreference}
+                </span>
               </div>
               <div className="flex justify-between text-stone-300 pt-1">
                 <span>Contact Phone:</span>

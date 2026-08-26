@@ -34,10 +34,7 @@ export function SiteFooter() {
           </p>
           <ul className="mt-5 space-y-3 text-sm">
             <li>
-              <a
-                href={business.phoneHref}
-                className="transition-colors hover:text-ivory"
-              >
+              <a href={business.phoneHref} className="transition-colors hover:text-ivory">
                 {business.phoneDisplay}
               </a>
             </li>

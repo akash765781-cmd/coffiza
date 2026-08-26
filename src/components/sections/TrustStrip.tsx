@@ -16,9 +16,7 @@ export function TrustStrip() {
           </span>
         </div>
         <div className="flex flex-col gap-1 py-6 sm:px-8">
-          <span className="font-display text-2xl text-espresso">
-            {business.priceRange}
-          </span>
+          <span className="font-display text-2xl text-espresso">{business.priceRange}</span>
           <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
             Per person
           </span>

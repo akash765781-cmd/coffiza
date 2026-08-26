@@ -105,9 +105,7 @@ export const CartDrawer: React.FC = () => {
                         >
                           <Minus className="w-3.5 h-3.5" />
                         </button>
-                        <span className="px-3 text-xs font-bold text-stone-100">
-                          {ci.quantity}
-                        </span>
+                        <span className="px-3 text-xs font-bold text-stone-100">{ci.quantity}</span>
                         <button
                           onClick={() => updateQuantity(ci.item.id, 1)}
                           className="p-1 hover:bg-stone-800 text-stone-300 rounded-r-lg transition"

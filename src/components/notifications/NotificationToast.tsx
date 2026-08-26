@@ -32,9 +32,7 @@ export const NotificationToast: React.FC = () => {
 
         <div className="flex-1 min-w-0 space-y-1">
           <div className="flex items-center justify-between">
-            <h4 className="font-serif font-bold text-sm text-red-300">
-              {activeToast.title}
-            </h4>
+            <h4 className="font-serif font-bold text-sm text-red-300">{activeToast.title}</h4>
             <span className="text-[10px] text-stone-400 font-mono">
               {new Date(activeToast.timestamp).toLocaleTimeString([], {
                 hour: "2-digit",
@@ -43,14 +41,10 @@ export const NotificationToast: React.FC = () => {
             </span>
           </div>
 
-          <p className="text-xs text-stone-200 leading-snug">
-            {activeToast.message}
-          </p>
+          <p className="text-xs text-stone-200 leading-snug">{activeToast.message}</p>
 
           {activeToast.reason && (
-            <p className="text-xs text-red-400 font-medium italic">
-              Reason: {activeToast.reason}
-            </p>
+            <p className="text-xs text-red-400 font-medium italic">Reason: {activeToast.reason}</p>
           )}
 
           <div className="pt-2 flex items-center gap-3 text-xs">

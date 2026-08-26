@@ -17,9 +17,9 @@ export function Hero() {
             <span className="block italic text-accent">Good times.</span>
           </h1>
           <p className="mt-7 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Espresso and cappuccino, pizza and fried chicken, cheesecake and cold
-            drinks — served all day at Star Complex on the Chandigarh Highway. Sit
-            in, take it away, or have it delivered.
+            Espresso and cappuccino, pizza and fried chicken, cheesecake and cold drinks — served
+            all day at Star Complex on the Chandigarh Highway. Sit in, take it away, or have it
+            delivered.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">

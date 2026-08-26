@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { useOrder } from "@/context/OrderContext";
-import { X, ShoppingBag, Calendar, Ban, CheckCircle2, Clock, AlertTriangle, ChevronRight } from "lucide-react";
+import {
+  X,
+  ShoppingBag,
+  Calendar,
+  Ban,
+  CheckCircle2,
+  Clock,
+  AlertTriangle,
+  ChevronRight,
+} from "lucide-react";
 
 export const MyOrdersModal: React.FC = () => {
   const {
@@ -15,7 +24,7 @@ export const MyOrdersModal: React.FC = () => {
   } = useOrder();
 
   const [cancelTargetId, setCancelTargetId] = useState<string | null>(null);
-  const [cancelType, setCancelType] = useState<'order' | 'reservation'>('order');
+  const [cancelType, setCancelType] = useState<"order" | "reservation">("order");
   const [cancelReason, setCancelReason] = useState("");
   const [feedbackMsg, setFeedbackMsg] = useState<string | null>(null);
 
@@ -48,7 +57,9 @@ export const MyOrdersModal: React.FC = () => {
         <div className="p-5 border-b border-stone-800 flex items-center justify-between bg-stone-950/80">
           <div>
             <h2 className="font-serif text-xl font-bold text-amber-100">My Orders & Bookings</h2>
-            <p className="text-xs text-stone-400">View status or cancel active orders/reservations</p>
+            <p className="text-xs text-stone-400">
+              View status or cancel active orders/reservations
+            </p>
           </div>
           <button
             onClick={() => setIsMyOrdersOpen(false)}
@@ -139,8 +150,8 @@ export const MyOrdersModal: React.FC = () => {
                           order.status === "cancelled"
                             ? "bg-red-500/10 text-red-400 border border-red-500/30"
                             : order.status === "ready" || order.status === "delivered"
-                            ? "bg-green-500/10 text-green-400 border border-green-500/30"
-                            : "bg-amber-500/10 text-amber-400 border border-amber-500/30 animate-pulse"
+                              ? "bg-green-500/10 text-green-400 border border-green-500/30"
+                              : "bg-amber-500/10 text-amber-400 border border-amber-500/30 animate-pulse"
                         }`}
                       >
                         {order.status}
@@ -166,10 +177,14 @@ export const MyOrdersModal: React.FC = () => {
                   <div className="pt-3 border-t border-stone-800/80 flex flex-wrap items-center justify-between gap-3 text-xs">
                     <div>
                       <p className="text-stone-400">
-                        Customer: <strong className="text-stone-200">{order.customerName}</strong> ({order.phone})
+                        Customer: <strong className="text-stone-200">{order.customerName}</strong> (
+                        {order.phone})
                       </p>
                       <p className="text-stone-400 mt-0.5">
-                        Type: <span className="uppercase text-amber-400 font-semibold">{order.fulfillmentType}</span>
+                        Type:{" "}
+                        <span className="uppercase text-amber-400 font-semibold">
+                          {order.fulfillmentType}
+                        </span>
                         {order.deliveryAddress && ` • ${order.deliveryAddress}`}
                         {order.tableNumber && ` • ${order.tableNumber}`}
                       </p>
@@ -182,7 +197,9 @@ export const MyOrdersModal: React.FC = () => {
 
                     <div className="flex items-center gap-4">
                       <div className="text-right">
-                        <span className="text-stone-400 block text-[10px] uppercase font-semibold">Total</span>
+                        <span className="text-stone-400 block text-[10px] uppercase font-semibold">
+                          Total
+                        </span>
                         <span className="text-base font-bold text-amber-300">₹{order.total}</span>
                       </div>
 
@@ -204,86 +221,85 @@ export const MyOrdersModal: React.FC = () => {
                 </div>
               ))
             )
-          ) : (
-            /* Table Reservations Tab */
-            reservations.length === 0 ? (
-              <div className="py-12 text-center space-y-3">
-                <div className="w-14 h-14 rounded-full bg-stone-800 flex items-center justify-center text-stone-500 mx-auto">
-                  <Calendar className="w-7 h-7" />
-                </div>
-                <h4 className="text-base font-semibold text-stone-300">No Reservations Found</h4>
-                <p className="text-xs text-stone-400 max-w-sm mx-auto">
-                  Book a table for lunch, dinner, or special occasions and manage your reservations here.
-                </p>
+          ) : /* Table Reservations Tab */
+          reservations.length === 0 ? (
+            <div className="py-12 text-center space-y-3">
+              <div className="w-14 h-14 rounded-full bg-stone-800 flex items-center justify-center text-stone-500 mx-auto">
+                <Calendar className="w-7 h-7" />
               </div>
-            ) : (
-              reservations.map((res) => (
-                <div
-                  key={res.id}
-                  className="p-5 rounded-2xl bg-stone-950 border border-stone-800 space-y-3 hover:border-stone-700 transition"
-                >
-                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800/80 pb-3">
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-sm font-bold text-amber-300 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">
-                        {res.id}
-                      </span>
-                      <span className="text-xs text-stone-300 font-medium">
-                        📅 {res.date} at {res.timeSlot}
-                      </span>
-                    </div>
-
-                    <span
-                      className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                        res.status === "cancelled"
-                          ? "bg-red-500/10 text-red-400 border border-red-500/30"
-                          : "bg-green-500/10 text-green-400 border border-green-500/30"
-                      }`}
-                    >
-                      {res.status}
+              <h4 className="text-base font-semibold text-stone-300">No Reservations Found</h4>
+              <p className="text-xs text-stone-400 max-w-sm mx-auto">
+                Book a table for lunch, dinner, or special occasions and manage your reservations
+                here.
+              </p>
+            </div>
+          ) : (
+            reservations.map((res) => (
+              <div
+                key={res.id}
+                className="p-5 rounded-2xl bg-stone-950 border border-stone-800 space-y-3 hover:border-stone-700 transition"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800/80 pb-3">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-sm font-bold text-amber-300 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">
+                      {res.id}
+                    </span>
+                    <span className="text-xs text-stone-300 font-medium">
+                      📅 {res.date} at {res.timeSlot}
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-stone-300">
-                    <div>
-                      <span className="text-stone-400 block text-[10px]">Guest Name:</span>
-                      <span className="font-semibold">{res.guestName}</span>
-                    </div>
-                    <div>
-                      <span className="text-stone-400 block text-[10px]">Guests Count:</span>
-                      <span className="font-semibold">{res.guestCount} Persons</span>
-                    </div>
-                    <div>
-                      <span className="text-stone-400 block text-[10px]">Seating Preference:</span>
-                      <span className="font-semibold capitalize">{res.seatingPreference}</span>
-                    </div>
+                  <span
+                    className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                      res.status === "cancelled"
+                        ? "bg-red-500/10 text-red-400 border border-red-500/30"
+                        : "bg-green-500/10 text-green-400 border border-green-500/30"
+                    }`}
+                  >
+                    {res.status}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-stone-300">
+                  <div>
+                    <span className="text-stone-400 block text-[10px]">Guest Name:</span>
+                    <span className="font-semibold">{res.guestName}</span>
                   </div>
-
-                  {res.cancellationReason && (
-                    <p className="text-xs text-red-400 italic">
-                      Cancellation Reason: {res.cancellationReason}
-                    </p>
-                  )}
-
-                  <div className="pt-2 border-t border-stone-800/80 flex items-center justify-between text-xs">
-                    <span className="text-stone-400">Phone: {res.phone}</span>
-
-                    {/* CANCEL RESERVATION BUTTON */}
-                    {res.status !== "cancelled" && (
-                      <button
-                        onClick={() => {
-                          setCancelTargetId(res.id);
-                          setCancelType("reservation");
-                        }}
-                        className="px-3 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 font-medium transition flex items-center gap-1"
-                      >
-                        <Ban className="w-3.5 h-3.5" />
-                        <span>Cancel Booking</span>
-                      </button>
-                    )}
+                  <div>
+                    <span className="text-stone-400 block text-[10px]">Guests Count:</span>
+                    <span className="font-semibold">{res.guestCount} Persons</span>
+                  </div>
+                  <div>
+                    <span className="text-stone-400 block text-[10px]">Seating Preference:</span>
+                    <span className="font-semibold capitalize">{res.seatingPreference}</span>
                   </div>
                 </div>
-              ))
-            )
+
+                {res.cancellationReason && (
+                  <p className="text-xs text-red-400 italic">
+                    Cancellation Reason: {res.cancellationReason}
+                  </p>
+                )}
+
+                <div className="pt-2 border-t border-stone-800/80 flex items-center justify-between text-xs">
+                  <span className="text-stone-400">Phone: {res.phone}</span>
+
+                  {/* CANCEL RESERVATION BUTTON */}
+                  {res.status !== "cancelled" && (
+                    <button
+                      onClick={() => {
+                        setCancelTargetId(res.id);
+                        setCancelType("reservation");
+                      }}
+                      className="px-3 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 font-medium transition flex items-center gap-1"
+                    >
+                      <Ban className="w-3.5 h-3.5" />
+                      <span>Cancel Booking</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))
           )}
         </div>
 
@@ -299,7 +315,8 @@ export const MyOrdersModal: React.FC = () => {
                   Cancel {cancelType === "order" ? "Order" : "Reservation"} ({cancelTargetId})?
                 </h3>
                 <p className="text-xs text-stone-400 mt-1">
-                  Are you sure you want to cancel this {cancelType}? This action will immediately notify our staff.
+                  Are you sure you want to cancel this {cancelType}? This action will immediately
+                  notify our staff.
                 </p>
               </div>
 

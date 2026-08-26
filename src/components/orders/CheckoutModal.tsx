@@ -1,7 +1,18 @@
 import React, { useState } from "react";
 import { useOrder } from "@/context/OrderContext";
 import type { FulfillmentType, PaymentMethod, OrderFormErrors, Order } from "@/types/order";
-import { X, CheckCircle, AlertCircle, ShoppingBag, Truck, Store, Utensils, CreditCard, Banknote, QrCode } from "lucide-react";
+import {
+  X,
+  CheckCircle,
+  AlertCircle,
+  ShoppingBag,
+  Truck,
+  Store,
+  Utensils,
+  CreditCard,
+  Banknote,
+  QrCode,
+} from "lucide-react";
 
 export const CheckoutModal: React.FC = () => {
   const {
@@ -24,6 +35,7 @@ export const CheckoutModal: React.FC = () => {
 
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [confirmedOrder, setConfirmedOrder] = useState<Order | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!isCheckoutOpen) return null;
 
@@ -68,7 +80,7 @@ export const CheckoutModal: React.FC = () => {
     setTouched((prev) => ({ ...prev, [field]: true }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setTouched({
       customerName: true,
@@ -78,8 +90,9 @@ export const CheckoutModal: React.FC = () => {
     });
 
     if (!isValid) return;
+    setIsSubmitting(true);
 
-    const newOrder = placeOrder({
+    const newOrder = await placeOrder({
       customerName,
       phone,
       fulfillmentType,
@@ -89,6 +102,7 @@ export const CheckoutModal: React.FC = () => {
       notes,
     });
 
+    setIsSubmitting(false);
     if (newOrder) {
       setConfirmedOrder(newOrder);
     }
@@ -141,14 +155,17 @@ export const CheckoutModal: React.FC = () => {
                 Order Placed Successfully!
               </h3>
               <p className="text-sm text-stone-400 mt-1 max-w-md mx-auto">
-                Thank you, <strong className="text-stone-200">{confirmedOrder.customerName}</strong>. Our kitchen has received your order and is preparing it fresh.
+                Thank you, <strong className="text-stone-200">{confirmedOrder.customerName}</strong>
+                . Our kitchen has received your order and is preparing it fresh.
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-stone-950 border border-stone-800 text-left text-xs space-y-2">
               <div className="flex justify-between border-b border-stone-800 pb-2 text-stone-300">
                 <span>Fulfillment Type:</span>
-                <span className="font-bold text-amber-400 uppercase">{confirmedOrder.fulfillmentType}</span>
+                <span className="font-bold text-amber-400 uppercase">
+                  {confirmedOrder.fulfillmentType}
+                </span>
               </div>
               <div className="flex justify-between border-b border-stone-800 pb-2 text-stone-300">
                 <span>Contact Phone:</span>
@@ -157,7 +174,9 @@ export const CheckoutModal: React.FC = () => {
               {confirmedOrder.deliveryAddress && (
                 <div className="flex justify-between border-b border-stone-800 pb-2 text-stone-300">
                   <span>Delivery Address:</span>
-                  <span className="font-semibold text-stone-100">{confirmedOrder.deliveryAddress}</span>
+                  <span className="font-semibold text-stone-100">
+                    {confirmedOrder.deliveryAddress}
+                  </span>
                 </div>
               )}
               <div className="flex justify-between text-stone-300 pt-1 text-sm font-bold">
@@ -397,7 +416,9 @@ export const CheckoutModal: React.FC = () => {
             {Object.keys(errors).length > 0 && (
               <div className="p-3 rounded-xl bg-red-950/30 border border-red-900/50 text-red-300 text-xs flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                <span>ਕਿਰਪਾ ਕਰਕੇ ਸਾਰੀਆਂ ਜਰੂਰੀ ਡਿਟੇਲਾਂ ਸਹੀ ਭਰੋ (Please fix form errors to place order).</span>
+                <span>
+                  ਕਿਰਪਾ ਕਰਕੇ ਸਾਰੀਆਂ ਜਰੂਰੀ ਡਿਟੇਲਾਂ ਸਹੀ ਭਰੋ (Please fix form errors to place order).
+                </span>
               </div>
             )}
 

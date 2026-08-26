@@ -100,10 +100,7 @@ export function FoodStory() {
               </figcaption>
             </figure>
           </Reveal>
-          <Reveal
-            delay={200}
-            className="flex items-end bg-espresso p-7 text-ivory md:col-span-4"
-          >
+          <Reveal delay={200} className="flex items-end bg-espresso p-7 text-ivory md:col-span-4">
             <p className="font-display text-2xl leading-snug">
               Coffee, pizza, snacks and dessert — one table, one visit.
             </p>

@@ -15,11 +15,11 @@ export type CartItem = {
   specialInstruction?: string;
 };
 
-export type FulfillmentType = 'dine-in' | 'takeaway' | 'delivery';
+export type FulfillmentType = "dine-in" | "takeaway" | "delivery";
 
-export type PaymentMethod = 'cod' | 'upi' | 'card';
+export type PaymentMethod = "cod" | "upi" | "card";
 
-export type OrderStatus = 'placed' | 'preparing' | 'ready' | 'delivered' | 'cancelled';
+export type OrderStatus = "placed" | "preparing" | "ready" | "delivered" | "cancelled";
 
 export type Order = {
   id: string;
@@ -41,7 +41,7 @@ export type Order = {
   cancelledAt?: string | undefined;
 };
 
-export type ReservationStatus = 'confirmed' | 'cancelled' | 'completed';
+export type ReservationStatus = "confirmed" | "cancelled" | "completed";
 
 export type TableReservation = {
   id: string;
@@ -51,7 +51,7 @@ export type TableReservation = {
   guestCount: number;
   date: string;
   timeSlot: string;
-  seatingPreference: 'indoor' | 'outdoor' | 'window' | 'any';
+  seatingPreference: "indoor" | "outdoor" | "window" | "any";
   specialRequest?: string | undefined;
   status: ReservationStatus;
   cancellationReason?: string | undefined;
@@ -63,7 +63,7 @@ export type NotificationMessage = {
   title: string;
   message: string;
   phone: string;
-  type: 'order_cancelled' | 'booking_cancelled' | 'order_update';
+  type: "order_cancelled" | "booking_cancelled" | "order_update";
   timestamp: string;
   read: boolean;
   relatedId?: string | undefined;

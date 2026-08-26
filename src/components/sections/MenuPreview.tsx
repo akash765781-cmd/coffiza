@@ -85,9 +85,7 @@ export function MenuPreview() {
                               }`}
                               title={item.isVeg ? "Veg" : "Non-Veg"}
                             />
-                            <h4 className="text-base font-semibold text-espresso">
-                              {item.name}
-                            </h4>
+                            <h4 className="text-base font-semibold text-espresso">{item.name}</h4>
                             {item.tag && (
                               <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-md">
                                 {item.tag}
@@ -113,8 +111,8 @@ export function MenuPreview() {
                             justAdded
                               ? "bg-green-700 text-white"
                               : qty > 0
-                              ? "bg-amber-600 text-white hover:bg-amber-700"
-                              : "bg-espresso text-stone-100 hover:bg-amber-700"
+                                ? "bg-amber-600 text-white hover:bg-amber-700"
+                                : "bg-espresso text-stone-100 hover:bg-amber-700"
                           }`}
                         >
                           {justAdded ? (

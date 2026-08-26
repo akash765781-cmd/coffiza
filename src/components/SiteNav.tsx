@@ -116,9 +116,7 @@ export function SiteNav() {
 
                 <div className="max-h-60 overflow-y-auto space-y-2">
                   {notifications.length === 0 ? (
-                    <p className="text-xs text-stone-400 py-4 text-center">
-                      No notifications yet.
-                    </p>
+                    <p className="text-xs text-stone-400 py-4 text-center">No notifications yet.</p>
                   ) : (
                     notifications.map((n) => (
                       <div
@@ -136,7 +134,10 @@ export function SiteNav() {
                           <p className="text-[10px] text-red-400 italic">Reason: {n.reason}</p>
                         )}
                         <span className="text-[9px] text-stone-500 block text-right font-mono">
-                          {new Date(n.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                          {new Date(n.timestamp).toLocaleTimeString([], {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
                         </span>
                       </div>
                     ))

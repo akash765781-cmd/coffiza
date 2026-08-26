@@ -25,12 +25,8 @@ export function VisitUs() {
                 <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
                   Address
                 </p>
-                <p className="mt-2 leading-relaxed text-espresso">
-                  {business.address}
-                </p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Plus Code: {business.plusCode}
-                </p>
+                <p className="mt-2 leading-relaxed text-espresso">{business.address}</p>
+                <p className="mt-2 text-sm text-muted-foreground">Plus Code: {business.plusCode}</p>
               </div>
             </div>
 
@@ -71,13 +67,10 @@ export function VisitUs() {
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-60" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-green-600" />
                   </span>
-                  <span className="text-sm font-semibold text-espresso">
-                    {business.hours}
-                  </span>
+                  <span className="text-sm font-semibold text-espresso">{business.hours}</span>
                 </div>
                 <p className="mt-3 text-sm text-muted-foreground">
-                  [PLACEHOLDER — confirm exact daily opening times by calling the
-                  cafe.]
+                  [PLACEHOLDER — confirm exact daily opening times by calling the cafe.]
                 </p>
               </div>
             </div>
@@ -102,11 +95,7 @@ export function VisitUs() {
             </div>
 
             <div className="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              <ActionButton
-                href={business.directionsUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
+              <ActionButton href={business.directionsUrl} target="_blank" rel="noreferrer noopener">
                 <Navigation className="h-4 w-4" aria-hidden="true" />
                 Get Directions
               </ActionButton>

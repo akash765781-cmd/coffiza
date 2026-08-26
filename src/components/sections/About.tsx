@@ -11,28 +11,24 @@ export function About() {
             Your spot in Banga for coffee, food &amp; good company
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-            Coffizza Cafe &amp; Restro is a cafe and restaurant in Banga serving
-            coffee, food, desserts and cold drinks. Sit down for a long cappuccino,
-            share a pizza with friends, or pick up an order on your way through town —
-            dine-in, takeaway and no-contact delivery are all available.
+            Coffizza Cafe &amp; Restro is a cafe and restaurant in Banga serving coffee, food,
+            desserts and cold drinks. Sit down for a long cappuccino, share a pizza with friends, or
+            pick up an order on your way through town — dine-in, takeaway and no-contact delivery
+            are all available.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            You'll find us at Star Complex on the Chandigarh Highway, easy to reach
-            whether you live around the corner or are just passing through Banga.
+            You'll find us at Star Complex on the Chandigarh Highway, easy to reach whether you live
+            around the corner or are just passing through Banga.
           </p>
           <dl className="mt-8 grid gap-6 sm:grid-cols-2">
             <div>
-              <dt className="text-[0.6rem] uppercase tracking-[0.22em] text-accent">
-                Where
-              </dt>
+              <dt className="text-[0.6rem] uppercase tracking-[0.22em] text-accent">Where</dt>
               <dd className="mt-2 text-sm text-espresso">
                 Star Complex, Chandigarh Highway, Banga
               </dd>
             </div>
             <div>
-              <dt className="text-[0.6rem] uppercase tracking-[0.22em] text-accent">
-                Today
-              </dt>
+              <dt className="text-[0.6rem] uppercase tracking-[0.22em] text-accent">Today</dt>
               <dd className="mt-2 text-sm text-espresso">{business.hours}</dd>
             </div>
           </dl>
@@ -49,9 +45,7 @@ export function About() {
           />
           <div className="absolute -bottom-5 -right-3 hidden bg-accent px-6 py-5 text-accent-foreground lg:block">
             <p className="font-display text-2xl leading-none">Banga, Punjab</p>
-            <p className="mt-1 text-[0.6rem] uppercase tracking-[0.22em]">
-              Chandigarh Highway
-            </p>
+            <p className="mt-1 text-[0.6rem] uppercase tracking-[0.22em]">Chandigarh Highway</p>
           </div>
         </Reveal>
       </div>

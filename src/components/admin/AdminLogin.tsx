@@ -45,12 +45,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
           </div>
         )}
 
-        <form
-          onSubmit={handleLogin}
-          autoComplete="off"
-          noValidate
-          className="space-y-4"
-        >
+        <form onSubmit={handleLogin} autoComplete="off" noValidate className="space-y-4">
           {/* Prevent hidden autofill tricks */}
           <input type="text" className="hidden" name="fakeusernameremembered" />
           <input type="password" className="hidden" name="fakepasswordremembered" />

@@ -87,13 +87,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Coffizza Cafe & Restro — Coffee, Food & Cafe in Banga" },
       {
         name: "description",
-        content: "Coffizza Cafe & Restro in Banga, Punjab — fresh coffee, pizza, fried chicken, momos and desserts. Dine-in, takeaway and delivery.",
+        content:
+          "Coffizza Cafe & Restro in Banga, Punjab — fresh coffee, pizza, fried chicken, momos and desserts. Dine-in, takeaway and delivery.",
       },
       { name: "author", content: "Coffizza Cafe & Restro" },
       { property: "og:title", content: "Coffizza Cafe & Restro — Cafe & Restro in Banga" },
       {
         property: "og:description",
-        content: "Fresh coffee and a full cafe kitchen in Banga, Punjab. Dine-in, takeaway and delivery.",
+        content:
+          "Fresh coffee and a full cafe kitchen in Banga, Punjab. Dine-in, takeaway and delivery.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
