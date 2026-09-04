@@ -91,13 +91,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Fresh coffee and a full cafe kitchen in Banga, Punjab. Dine-in, takeaway and delivery.",
+          "Fresh coffee and a full cafe kitchen in Banga, Punjab. Dine-in, takeaway and delivery. Rated 4.4/5 on Google.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://coffiza-79pe.vercel.app/" },
       { name: "theme-color", content: "#2c1409" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Coffizza Cafe & Restro — Cafe & Restro in Banga" },
+      {
+        name: "twitter:description",
+        content:
+          "Fresh coffee and a full cafe kitchen in Banga, Punjab. Dine-in, takeaway and delivery.",
+      },
     ],
     links: [
+      { rel: "canonical", href: "https://coffiza-79pe.vercel.app/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
