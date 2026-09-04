@@ -203,7 +203,7 @@ export const menuGroups: {
   },
 ];
 
-// Themes drawn from the supplied Google review summary. No names are attached
+// Themes drawn from the supplied Google review · No names are attached
 // because the source material does not provide verified reviewer names.
 export const reviewThemes = [
   {

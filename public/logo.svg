@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <defs>
+    <linearGradient id="logoBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c1409"/>
+      <stop offset="100%" stop-color="#140904"/>
+    </linearGradient>
+    <linearGradient id="logoGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon Emblem -->
+  <g transform="translate(6, 6)">
+    <rect x="0" y="0" width="48" height="48" rx="12" fill="url(#logoBgGrad)" stroke="url(#logoGoldGrad)" stroke-width="1.5"/>
+    
+    <!-- Steam -->
+    <path d="M20 12 Q23 8 20 5" stroke="#f59e0b" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    <path d="M25 13 Q28 9 25 6" stroke="#f59e0b" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    <path d="M30 12 Q33 8 30 5" stroke="#f59e0b" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+
+    <!-- Cup -->
+    <path d="M12 18 L32 18 C32 18 32 30 22 30 C12 30 12 18 12 18 Z" fill="#fef3c7"/>
+    <path d="M30 20 C35 20 36 23 36 25 C36 27 34 29 29 29" fill="none" stroke="#fef3c7" stroke-width="2" stroke-linecap="round"/>
+    <path d="M10 32 Q22 35 34 32" stroke="url(#logoGoldGrad)" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+    <!-- Pizza Slice -->
+    <g transform="translate(19, 18) scale(0.55)">
+      <path d="M12 18 Q26 13 40 18" stroke="#d97706" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <path d="M14 19 L26 44 L38 19 Q26 15 14 19 Z" fill="url(#logoGoldGrad)"/>
+      <circle cx="23" cy="25" r="2.2" fill="#dc2626"/>
+      <circle cx="29" cy="31" r="2" fill="#dc2626"/>
+      <circle cx="24" cy="37" r="1.5" fill="#16a34a"/>
+    </g>
+  </g>
+
+  <!-- Typography -->
+  <text x="66" y="32" font-family="'Fraunces', 'Georgia', serif" font-size="22" font-weight="700" fill="#2c1409" letter-spacing="1">COFFIZZA</text>
+  <text x="67" y="47" font-family="'Manrope', 'Segoe UI', sans-serif" font-size="8.5" font-weight="600" fill="#b45309" letter-spacing="3.5">CAFE &amp; RESTRO</text>
+</svg>

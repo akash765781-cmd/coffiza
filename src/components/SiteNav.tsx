@@ -1,3 +1,4 @@
+import { CoffizzaLogo } from "@/components/CoffizzaLogo";
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X, ShoppingBag, Calendar, ListOrdered, Bell, AlertOctagon } from "lucide-react";

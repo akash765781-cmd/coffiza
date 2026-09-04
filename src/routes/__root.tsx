@@ -7,10 +7,9 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { OrderProvider } from "@/context/OrderContext";
 import { CartDrawer } from "@/components/orders/CartDrawer";
 import { CheckoutModal } from "@/components/orders/CheckoutModal";
@@ -42,11 +41,8 @@ function NotFoundComponent() {
 }
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
-  console.error(error);
+  console.error("Runtime error caught:", error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -88,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Coffizza Cafe & Restro in Banga, Punjab — fresh coffee, pizza, fried chicken, momos and desserts. Dine-in, takeaway and delivery.",
+          "Coffizza Cafe & Restro in Banga, Punjab — fresh coffee, pizza, fried chicken, momos and desserts. Dine-in, takeaway and delivery. Open · Closes 11 PM.",
       },
       { name: "author", content: "Coffizza Cafe & Restro" },
       { property: "og:title", content: "Coffizza Cafe & Restro — Cafe & Restro in Banga" },
@@ -98,6 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Fresh coffee and a full cafe kitchen in Banga, Punjab. Dine-in, takeaway and delivery.",
       },
       { property: "og:type", content: "website" },
+      { name: "theme-color", content: "#2c1409" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -108,7 +105,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap",
       },
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { rel: "icon", href: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
+      { rel: "manifest", href: "/site.webmanifest" },
     ],
   }),
   shellComponent: RootShell,

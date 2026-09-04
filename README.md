@@ -1,29 +1,26 @@
-# Welcome to your Lovable project
+# Coffizza Cafe & Restro
 
-This project was built with [Lovable](https://lovable.dev).
+Official web application for **Coffizza Cafe & Restro** located in Banga, Punjab.
 
-## Build with Lovable
+## Features
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+- ☕ **Online Coffee & Food Ordering System** (Dine-in, Takeaway, Delivery)
+- 📅 **Table Reservation System**
+- 📦 **Live Order Tracking & Management**
+- 🛡️ **Manager & Admin Dashboard** (`/admin`)
+- 📱 **Fully Responsive Modern UI** with rich animations
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## Tech Stack
 
-## Development
+- **Framework**: TanStack Start & React 19
+- **Routing**: TanStack Router
+- **Styling**: Tailwind CSS v4
+- **State Management**: TanStack Query & React Context
+- **Deployment**: Vercel
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Local Development
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS

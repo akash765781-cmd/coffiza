@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c1409"/>
+      <stop offset="50%" stop-color="#1e0e06"/>
+      <stop offset="100%" stop-color="#140904"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="cupGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#f59e0b" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background Squircle -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bgGrad)" stroke="url(#goldGrad)" stroke-width="1.75"/>
+
+  <!-- Steaming aroma waves -->
+  <g stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.95" filter="url(#glow)">
+    <path d="M25 15 Q28 11 25 7 Q22 3 26 1" transform="scale(0.8) translate(8, 6)"/>
+    <path d="M33 16 Q36 12 33 8 Q30 4 34 2" transform="scale(0.8) translate(8, 6)"/>
+    <path d="M41 15 Q44 11 41 7 Q38 3 42 1" transform="scale(0.8) translate(8, 6)"/>
+  </g>
+
+  <!-- Coffee Cup Body -->
+  <!-- Main Cup -->
+  <path d="M16 23 L40 23 C40 23 40 37 28 37 C16 37 16 23 16 23 Z" fill="url(#cupGrad)" filter="url(#glow)"/>
+  
+  <!-- Cup Handle -->
+  <path d="M38 25 C43 25 45 28 45 31 C45 34 42 36 37 36" fill="none" stroke="url(#cupGrad)" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- Cup Saucer -->
+  <path d="M13 39 Q28 42 43 39" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Pizza Slice Overlaid / Integrated into Cafe Restro Vibe -->
+  <g transform="translate(24, 25) scale(0.68)" filter="url(#glow)">
+    <!-- Crust -->
+    <path d="M12 18 Q26 13 40 18" stroke="#d97706" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <!-- Cheese Body -->
+    <path d="M14 19 L26 44 L38 19 Q26 15 14 19 Z" fill="url(#goldGrad)"/>
+    <!-- Pepperoni / Toppings -->
+    <circle cx="23" cy="25" r="2.2" fill="#dc2626"/>
+    <circle cx="29" cy="31" r="2" fill="#dc2626"/>
+    <circle cx="25" cy="38" r="1.6" fill="#16a34a"/>
+    <circle cx="20" cy="30" r="1.4" fill="#16a34a"/>
+  </g>
+
+  <!-- Subtle 'C' Monogram Accent Curve at Bottom -->
+  <path d="M18 52 Q32 55 46 52" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+</svg>

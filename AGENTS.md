@@ -1,12 +1,10 @@
-<!-- LOVABLE:BEGIN -->
+# Coffizza Project Instructions
 
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
+This project powers the Coffizza Cafe & Restro web application and ordering system.
 
-<!-- LOVABLE:END -->
+## Project Structure
+
+- `src/routes/`: Application routes (Home, Admin)
+- `src/components/`: UI components, modals, drawers, and layouts
+- `src/context/`: Order & Reservation context providers
+- `public/`: Static brand assets, favicons, and manifest
