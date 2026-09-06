@@ -9,7 +9,7 @@ export function Hero() {
     <section id="home" className="relative overflow-hidden pt-24 md:pt-28 lg:pt-32">
       <div className="container-x grid items-center gap-10 pb-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:pb-24">
         <div className="animate-in fade-in slide-in-from-bottom-6 duration-1000">
-          <p className="eyebrow">Cafe • Restro • Banga</p>
+          <p className="eyebrow">Artisanal Coffee • Kitchen &amp; Bakery</p>
           <h1 className="mt-6 font-display text-[2.6rem] leading-[0.98] tracking-tight text-espresso sm:text-6xl lg:text-[4.6rem]">
             Good coffee.
             <br />
@@ -17,9 +17,8 @@ export function Hero() {
             <span className="block italic text-accent">Good times.</span>
           </h1>
           <p className="mt-7 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Espresso and cappuccino, pizza and fried chicken, cheesecake and cold drinks — served
-            all day at Star Complex on the Chandigarh Highway. Sit in, take it away, or have it
-            delivered.
+            Espresso and cappuccino, hand-tossed pizza and crispy chicken, artisanal cheesecake and cold drinks — served
+            fresh daily. Sit in, take it away, or order online.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
@@ -40,13 +39,10 @@ export function Hero() {
             </button>
 
             <a
-              href={business.directionsUrl}
-              target="_blank"
-              rel="noreferrer noopener"
+              href="#menu"
               className="px-4 py-3.5 rounded-xl border border-stone-200 text-stone-600 hover:bg-stone-100 text-sm font-semibold transition flex items-center gap-1.5"
             >
-              <MapPin className="w-4 h-4" />
-              <span>Directions</span>
+              <span>Explore Menu</span>
             </a>
           </div>
 

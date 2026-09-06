@@ -10,7 +10,7 @@ export function SiteFooter() {
         <div className="space-y-4">
           <CoffizzaLogo lightText size={42} />
           <p className="max-w-xs text-sm leading-relaxed text-ivory/75">
-            Cafe and restaurant in Banga offering freshly brewed coffee, hand-tossed pizzas, crispy bites, and delectable desserts. Dine-in, takeaway and delivery.
+            Artisanal cafe and restaurant offering freshly brewed coffee, hand-tossed pizzas, crispy bites, and delectable desserts. Dine-in, takeaway and express delivery.
           </p>
         </div>
 
@@ -31,15 +31,10 @@ export function SiteFooter() {
 
         <div>
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-accent">
-            Contact &amp; Manager Portal
+            Orders &amp; Manager Portal
           </p>
           <ul className="mt-5 space-y-3 text-sm">
-            <li>
-              <a href={business.phoneHref} className="transition-colors hover:text-ivory">
-                {business.phoneDisplay}
-              </a>
-            </li>
-            <li>Banga, Punjab</li>
+            <li>Dine-In • Takeaway • Online Delivery</li>
             <li>{business.hours}</li>
             <li className="pt-3">
               {/* Admin Portal Link */}
@@ -57,7 +52,7 @@ export function SiteFooter() {
 
       <div className="container-x mt-14 border-t border-ivory/10 pt-6 flex flex-wrap justify-between items-center text-xs text-ivory/45 gap-2">
         <span>
-          © {new Date().getFullYear()} Coffizza Cafe &amp; Restro, Banga. All rights reserved.
+          © {new Date().getFullYear()} Coffizza Cafe &amp; Restro. All rights reserved.
         </span>
         <Link
           to="/admin"

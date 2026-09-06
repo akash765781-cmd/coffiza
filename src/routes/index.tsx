@@ -17,24 +17,24 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: `${business.name} — Coffee, Food & Cafe in ${business.city}`,
+        title: `${business.name} — Coffee, Kitchen & Artisan Dining`,
       },
       {
         name: "description",
-        content: `${business.name} in ${business.city}, Punjab — fresh coffee, pizza, fried chicken, momos and desserts. Dine-in, takeaway and delivery. ${business.hours}.`,
+        content: `${business.name} — fresh specialty coffee, hand-tossed pizza, fried chicken, momos and desserts. Dine-in, takeaway and online delivery. ${business.hours}.`,
       },
-      { property: "og:title", content: `${business.name} — Cafe & Restro in ${business.city}` },
+      { property: "og:title", content: `${business.name} — Artisan Cafe & Restro` },
       {
         property: "og:description",
-        content: `Fresh coffee and a full cafe kitchen in ${business.city}, Punjab. Dine-in, takeaway and delivery. Rated ${business.rating}/5 on Google.`,
+        content: `Fresh specialty coffee and an artisanal kitchen. Dine-in, takeaway and online delivery. Rated ${business.rating}/5 on Google.`,
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: images.hero },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: `${business.name} — Cafe & Restro in ${business.city}` },
+      { name: "twitter:title", content: `${business.name} — Artisan Cafe & Restro` },
       {
         name: "twitter:description",
-        content: `Fresh coffee and a full cafe kitchen in ${business.city}, Punjab. Dine-in, takeaway and delivery.`,
+        content: `Fresh specialty coffee and an artisanal kitchen. Dine-in, takeaway and online delivery.`,
       },
       { name: "twitter:image", content: images.hero },
     ],

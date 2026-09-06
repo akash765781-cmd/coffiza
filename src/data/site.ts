@@ -24,21 +24,18 @@ export const images = {
 
 export const business = {
   name: "Coffizza Cafe & Restro",
-  city: "Banga",
-  address:
-    "Star Complex, Chandigarh Highway, Banga Rural, Gandhi Nagar Mohalla, Banga Rural, Banga, Punjab 144505",
-  plusCode: "5XMW+JW Banga Rural, Punjab",
-  phoneDisplay: "099178 00084",
-  phoneHref: "tel:+919917800084",
+  city: "Artisan Cafe",
+  address: "Specialty Coffee & Gourmet Kitchen",
+  plusCode: "Dine-in • Takeaway • Fast Delivery",
+  phoneDisplay: "",
+  phoneHref: "/#menu",
   priceRange: "₹200–₹400",
   rating: "4.4",
   reviewCount: "192",
   hours: "Open · Closes 11 PM",
   services: ["Dine-in", "Takeaway", "No-contact delivery"],
-  directionsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Coffizza+Cafe+%26+Restro+Banga+Star+Complex+Chandigarh+Highway+Banga+Punjab+144505",
-  mapEmbedUrl:
-    "https://www.google.com/maps?q=Coffizza+Cafe+%26+Restro+Banga+Star+Complex+Chandigarh+Highway+Banga+Punjab+144505&output=embed",
+  directionsUrl: "/#menu",
+  mapEmbedUrl: "",
 };
 
 export const navLinks = [

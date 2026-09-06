@@ -51,19 +51,14 @@ export function MobileActionBar() {
           My Orders
         </button>
 
-        <a href={business.phoneHref} className={itemClass}>
-          <Phone className="h-4 w-4" aria-hidden="true" />
-          Call
+        <a href="#menu" className={itemClass}>
+          <ShoppingBag className="h-4 w-4 text-amber-300" aria-hidden="true" />
+          Menu
         </a>
 
-        <a
-          href={business.directionsUrl}
-          target="_blank"
-          rel="noreferrer noopener"
-          className={itemClass}
-        >
-          <MapPin className="h-4 w-4" aria-hidden="true" />
-          Directions
+        <a href="#reviews" className={itemClass}>
+          <ListOrdered className="h-4 w-4 text-amber-300" aria-hidden="true" />
+          Reviews
         </a>
       </nav>
     </div>
